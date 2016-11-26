@@ -1,0 +1,23 @@
+<component name="libraryTable">
+  <library name="Generated files" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/webpack.config-compiled.js" />
+        <item url="file://$PROJECT_DIR$/client/src/components/navigationBar-compiled.js" />
+        <item url="file://$PROJECT_DIR$/client/src/components/routes-compiled.js" />
+        <item url="file://$PROJECT_DIR$/client/src/components/pages/main-compiled.js" />
+        <item url="file://$PROJECT_DIR$/server-compiled.js" />
+        <item url="file://$PROJECT_DIR$/client/src/components/pages/chat-compiled.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/webpack.config-compiled.js" />
+      <root url="file://$PROJECT_DIR$/client/src/components/navigationBar-compiled.js" />
+      <root url="file://$PROJECT_DIR$/client/src/components/routes-compiled.js" />
+      <root url="file://$PROJECT_DIR$/client/src/components/pages/main-compiled.js" />
+      <root url="file://$PROJECT_DIR$/server-compiled.js" />
+      <root url="file://$PROJECT_DIR$/client/src/components/pages/chat-compiled.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

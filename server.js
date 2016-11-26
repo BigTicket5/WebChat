@@ -11,6 +11,16 @@ const webpackConfig = require('./webpack.config');
 const compiler = webpack(webpackConfig);
 
 let app = express();
+const http = require('http').Server(app)
+const io = require('socket.io')(http)
+
+// Listen for a connection
+io.on('connection', socket => {
+  // Create message
+  socket.on('chat message', params => {
+      io.emit('chat message');
+  })
+})
 
 // tell the app to look for static files in these directories
 app.use(webpackMiddleware(compiler,{
@@ -41,7 +51,7 @@ app.use('/auth', authRoutes);
 app.use('/mainChat', apiRoutes);
 
 // start the server
-app.listen(3000, function() {
+http.listen(3000, function() {
   console.log('Server is running on http://localhost:3000 or http://127.0.0.1:3000');
 });
 
