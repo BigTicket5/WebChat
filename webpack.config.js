@@ -1,0 +1,31 @@
+const webpack = require('webpack');
+module.exports = {
+  // the entry file for the bundle
+  devtools: 'eval-source-map',
+  entry: [
+          'webpack-hot-middleware/client',
+          __dirname + '/client/index.js'],
+
+  // the bundle file we will get in the result
+  output: {
+    path: '/',
+    publicPath: '/'
+  },
+  plugins:[
+    new webpack.NoErrorsPlugin(),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin()
+  ],
+  module: {
+
+    // apply loaders to files that meet given conditions
+    loaders: [{
+      test: /\.js$/,
+      exclude: /node_modules/,
+      loaders: ['babel']
+    }],
+  },
+
+  // start Webpack in a watch mode, so Webpack will rebuild the bundle on changes
+  watch: true
+};
