@@ -20,7 +20,7 @@ router.post('/signup',function(req, res, next){
     return res.status(200).json({ success: true, message: 'You have successfully signed up! Now you should be able to log in.' });
   })(req, res, next);
 
-});
+}) ;
 
 router.post('/login', function(req, res, next) {
   let validationResult = validateLoginForm(req.body);
@@ -29,6 +29,10 @@ router.post('/login', function(req, res, next) {
   }
 
   passport.authenticate('local-login', function(err, token, userData) {
+    if(userData==false)
+    {
+      return res.status(409).json({ success: false, message: "User email or password is not correct."});
+    }
     if (err) {
       if (err.name === "IncorrectCredentialsError") {
         return res.status(400).json({ success: false, message: err.message });
@@ -60,12 +64,16 @@ function validateSignupForm(payload) {
 
   if (!payload.password || !validator.isLength(payload.password, 8)) {
     isFormValid = false;
-    errors.password = "Password must have at least 8 characters.";
+    errors.password = "Password required and must have at least 8 characters.";
   }
-
   if (!payload.nickname || payload.nickname.trim().length === 0) {
     isFormValid = false;
     errors.name = "Please provide your nickname.";
+  }
+
+  if (!validator.equals(payload.password,payload.passwordconfirm)) {
+    isFormValid = false;
+    errors.passwordconfirm = "Password must match.";
   }
 
   if (!isFormValid) {
@@ -90,9 +98,9 @@ function validateLoginForm(payload) {
   let errors = {};
   let message = '';
 
-  if (!payload.email || payload.email.trim().length === 0) {
+  if (!payload.useremail || !validator.isEmail(payload.useremail)) {
     isFormValid = false;
-    errors.email = "Please provide your email address.";
+    errors.email = "Please provide your valid email address.";
   }
 
   if (!payload.password || payload.password.trim().length === 0) {

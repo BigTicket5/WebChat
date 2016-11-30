@@ -5,8 +5,9 @@ import {Provider} from 'react-redux';
 import routes from './src/components/routes';
 import thunk from 'redux-thunk';
 import {createStore,applyMiddleware} from 'redux';
+import rootReducer from './rootReducer';
 const store = createStore(
-	(state={})=>state,
+	rootReducer,
 	applyMiddleware(thunk)
 );
 render(
