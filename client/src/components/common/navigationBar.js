@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router';
 class NavigationBar  extends React.Component{
+
 	render(){
 		return(
 			<nav className="navbar navbar-default">
