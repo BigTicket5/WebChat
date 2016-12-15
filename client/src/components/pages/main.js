@@ -6,10 +6,9 @@ var socket = io.connect();
 
 class MainPage extends React.Component {
 
-    onClick() {
-            // call the server-side function 'adduser' and send one parameter (value of prompt)
-            let name = "test"
-            socket.emit('adduser', name);
+    onClick(val) {
+        // call the server-side function 'adduser' and send one parameter (value of prompt)
+        socket.emit('adduser', val);
     }
 
 	render()
@@ -18,8 +17,8 @@ class MainPage extends React.Component {
 			<div>
 				<h1> There u are!</h1>
                 <ul>
-                <li><Link to="/chat" onClick={this.onClick.bind(this)}>room1</Link></li>
-                <li><Link to="/chat" onClick={this.onClick.bind(this)}>room2</Link></li>
+                <li><Link to="/chat" onClick={this.onClick.bind(this, "room1")}>room1</Link></li>
+                <li><Link to="/chat" onClick={this.onClick.bind(this, "room2")}>room2</Link></li>
                 </ul>
 			</div>
 		);

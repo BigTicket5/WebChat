@@ -27,12 +27,12 @@ class chat extends Component {
         const messages = data.messages
 
         socket.on('updatechat', (data) => {
-            console.log(JSON.stringify(data));
+            console.log(data);
             const message_browser = {
                 _id: uuid.v1(),
                 metafield: {
                     message: {
-                        value: JSON.stringify(data)
+                        value: data
                     }
                 }
             }
@@ -54,7 +54,7 @@ class chat extends Component {
         if (!message_text)
             return
 
-        socket.emit("sendchat", message_text)
+        socket.emit("sendchat", {room:"room1", message:message_text})
 
         // Render to browser
         const message_browser = {

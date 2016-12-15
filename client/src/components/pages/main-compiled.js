@@ -41,10 +41,9 @@ var MainPage = function (_React$Component) {
 
   _createClass(MainPage, [{
     key: 'onClick',
-    value: function onClick() {
+    value: function onClick(val) {
       // call the server-side function 'adduser' and send one parameter (value of prompt)
-      var name = "test";
-      socket.emit('adduser', name);
+      socket.emit('adduser', val);
     }
   }, {
     key: 'render',
@@ -65,7 +64,7 @@ var MainPage = function (_React$Component) {
             null,
             _react2.default.createElement(
               _reactRouter.Link,
-              { to: '/chat', onClick: this.onClick.bind(this) },
+              { to: '/chat', onClick: this.onClick.bind(this, "room1") },
               'room1'
             )
           ),
@@ -74,7 +73,7 @@ var MainPage = function (_React$Component) {
             null,
             _react2.default.createElement(
               _reactRouter.Link,
-              { to: '/chat', onClick: this.onClick.bind(this) },
+              { to: '/chat', onClick: this.onClick.bind(this, "room2") },
               'room2'
             )
           )

@@ -71,12 +71,12 @@ var chat = function (_Component) {
             var messages = data.messages;
 
             socket.on('updatechat', function (data) {
-                console.log(JSON.stringify(data));
+                console.log(data);
                 var message_browser = {
                     _id: _nodeUuid2.default.v1(),
                     metafield: {
                         message: {
-                            value: JSON.stringify(data)
+                            value: data
                         }
                     }
                 };
@@ -98,7 +98,7 @@ var chat = function (_Component) {
             var message_text = this.refs.message.refs.input.value.trim();
             if (!message_text) return;
 
-            socket.emit("sendchat", message_text);
+            socket.emit("sendchat", { room: "room1", message: message_text });
 
             // Render to browser
             var message_browser = {
