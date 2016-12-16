@@ -17,8 +17,8 @@ class MainPage extends React.Component {
 			<div>
 				<h1> There u are!</h1>
                 <ul>
-                <li><Link to="/chat" onClick={this.onClick.bind(this, "room1")}>room1</Link></li>
-                <li><Link to="/chat" onClick={this.onClick.bind(this, "room2")}>room2</Link></li>
+                <li><Link to="/chat/0" onClick={this.onClick.bind(this, "room1")}>room1</Link></li>
+                <li><Link to="/chat/1" onClick={this.onClick.bind(this, "room2")}>room2</Link></li>
                 </ul>
 			</div>
 		);

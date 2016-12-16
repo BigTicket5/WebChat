@@ -13,6 +13,6 @@ export default(
 		<IndexRoute component={ChatLobby} />
 		<Route path="signup" component={SignupPage}/>
 		<Route path="login" component={LoginPage}/>
-		<Route path="chat" component={Chat}/>
+		<Route path="chat/:id" component={Chat}/>
 	</Route>
 )

@@ -38,7 +38,7 @@ var _default = _react2.default.createElement(
 	_react2.default.createElement(_reactRouter.IndexRoute, { component: _main2.default }),
 	_react2.default.createElement(_reactRouter.Route, { path: 'signup', component: _signup2.default }),
 	_react2.default.createElement(_reactRouter.Route, { path: 'login', component: _login2.default }),
-	_react2.default.createElement(_reactRouter.Route, { path: 'chat', component: _chat2.default })
+	_react2.default.createElement(_reactRouter.Route, { path: 'chat/:id', component: _chat2.default })
 );
 
 exports.default = _default;

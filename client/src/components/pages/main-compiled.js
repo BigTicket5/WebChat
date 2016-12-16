@@ -64,7 +64,7 @@ var MainPage = function (_React$Component) {
             null,
             _react2.default.createElement(
               _reactRouter.Link,
-              { to: '/chat', onClick: this.onClick.bind(this, "room1") },
+              { to: '/chat/0', onClick: this.onClick.bind(this, "room1") },
               'room1'
             )
           ),
@@ -73,7 +73,7 @@ var MainPage = function (_React$Component) {
             null,
             _react2.default.createElement(
               _reactRouter.Link,
-              { to: '/chat', onClick: this.onClick.bind(this, "room2") },
+              { to: '/chat/1', onClick: this.onClick.bind(this, "room2") },
               'room2'
             )
           )

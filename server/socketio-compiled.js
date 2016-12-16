@@ -67,7 +67,7 @@ module.exports = function (http) {
                 console.log(JSON.stringify(resp));
             });
 
-            // console.log(socket);
+            console.log(socket.adapter.rooms);
             socket.broadcast.emit('updatechat', data.message);
         });
     });
