@@ -15,17 +15,20 @@ class Login extends React.Component {
 		this.onSubmit = this.onSubmit.bind(this);
 	}
 	onChange(e){
-		console.log(this.state);
 		this.setState({[e.target.name]:e.target.value});
 	}
 	onSubmit(e){
 		e.preventDefault();
 		this.setState({errors:{},isLoading:true});
 		this.props.userLoginRequest({useremail:this.state.useremail,password:this.state.password}).then(
-			()=>{
+			(success)=>{
+				this.props.addFlashMessage({
+					type: 'success',
+					text: 'Welcome, ' + success.reqdata.data.user
+				});
 				browserHistory.push('/');
 			},
-			(err)=>this.setState({errors:err.response.data.errors,isLoding:false}));
+			(err)=>this.setState({errors:err.response.data.errors,isLoading:false}));
 	}
 	render(){
 		const {errors} = this.state;
@@ -33,7 +36,7 @@ class Login extends React.Component {
 			<form onSubmit={this.onSubmit}>
 				<h1>Login</h1>
 				<TextFieldGroup
-					error = {errors.useremail}
+					error = {errors.email}
 					label = "Email"
 					onChange = {this.onChange}
 					value = {this.state.useremail}
@@ -48,7 +51,7 @@ class Login extends React.Component {
 					type = 'password'
 				/>
 				<div className="form-group">
-					<button disable={this.state.isLoading} className="btn btn-primary btn-lg">
+					<button disabled={this.state.isLoading} className="btn btn-primary btn-lg">
 						Login
 					</button>
 				</div>
@@ -58,7 +61,8 @@ class Login extends React.Component {
 }
 
 Login.propTypes={
-	userLoginRequest: React.PropTypes.func.isRequired
+	userLoginRequest: React.PropTypes.func.isRequired,
+	addFlashMessage: React.PropTypes.func.isRequired
 }
 
 export default Login;

@@ -11,7 +11,7 @@ class FlashMessage extends React.Component {
 			})}>
 			{text}
 			</div>
-		)
+		);
 	}
 }
 

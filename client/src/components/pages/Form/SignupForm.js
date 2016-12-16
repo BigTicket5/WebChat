@@ -28,14 +28,9 @@ class Signup extends React.Component{
 			passwordconfirm:this.state.passwordconfirm,
 			nickname:this.state.nickname}).then(
 			(success)=>{
-				console.log(success);
-				this.props.addFlashMessage({
-					type: 'success',
-					text: this.state.nickname+','+success.data.message
-				});
-				browserHistory.push('/');
+				browserHistory.push('login');
 			},
-			(err)=>this.setState({errors:err.response.data.errors,isLoding:false}));
+			(err)=>this.setState({errors:err.response.data.errors,isLoading:false}));
 			//(err)=>{ console.log(err.response.data.errors);})
 	}
 	render(){
@@ -74,7 +69,7 @@ class Signup extends React.Component{
 					field = "nickname"
 				/>
 				<div className="form-group">
-					<button disable={this.state.isLoading} className="btn btn-primary btn-lg">
+					<button disabled={this.state.isLoading} className="btn btn-primary btn-lg">
 						Sign up
 					</button>
 				</div>
@@ -83,8 +78,7 @@ class Signup extends React.Component{
 	}
 }
 Signup.propTypes={
-	userSignupRequest: React.PropTypes.func.isRequired,
-	addFlashMessage: React.PropTypes.func.isRequired
+	userSignupRequest: React.PropTypes.func.isRequired
 }
 export default Signup;
 

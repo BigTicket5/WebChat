@@ -1,8 +1,9 @@
 import {ADD_FLASH_MESSAGE} from '../constants/ActionTypes';
 import shortid from 'shortid';
-export default(state=[],action={}) =>{
+export default(state=[],action) =>{
 	switch (action.type){
 		case ADD_FLASH_MESSAGE:
+			console.log(state);
 			return [
 				...state,
 				{

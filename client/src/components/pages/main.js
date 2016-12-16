@@ -6,7 +6,6 @@ class MainPage extends React.Component{
 	{
 		return (
 			<div>
-				<h1> There u are!</h1>
 			</div>
 		);
 	}
