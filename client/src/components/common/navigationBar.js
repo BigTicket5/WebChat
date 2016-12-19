@@ -2,16 +2,8 @@ import React from 'react';
 import {Link} from 'react-router';
 import { connect } from 'react-redux';
 class NavigationBar  extends React.Component{
-	// constructor(props){
-	// 	super(props);
-	// 	this.state = {
-	// 		isLogin:false
-	// 	}
-	// }
 	render(){
-		console.log(1);
 		const islogin = this.props.isLogin;
-		console.log(islogin);
 		return(
 			<nav className="navbar navbar-default">
 			  <div className="container-fluid">
@@ -21,9 +13,9 @@ class NavigationBar  extends React.Component{
 			  	<div className="collapse navbar-collapse">
 			  		<ul className="nav navbar-nav navbar-right">
 			  			{islogin?false:<li><Link to="/signup">Sign up</Link></li>}
-			  			{islogin?<li><Link to="/userInfo">Profile</Link></li>:null}
-						{islogin?<li><Link to="/chat">Go to chat</Link></li>:null}
-						{islogin?null:<li><Link to="/login">Login</Link></li>}
+			  			{islogin?<li><Link to="/userInfo">Profile</Link></li>:false}
+						{islogin?false:<li><Link to="/login">Login</Link></li>}
+						{islogin?<li><Link to="/logout">Logout</Link></li>:false}
 			  		</ul>
 			  	</div> 
 			  </div>
@@ -37,7 +29,7 @@ NavigationBar.propTypes = {
 }
 function mapStateToProps(state){
 	return{
-		isLogin:state.loginUser
+		isLogin:state.flashMessages.loggedIn
 	}
 }
 export default connect(mapStateToProps)(NavigationBar);

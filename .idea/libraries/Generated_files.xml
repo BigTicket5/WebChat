@@ -2,21 +2,59 @@
   <library name="Generated files" type="javaScript">
     <properties>
       <sourceFilesUrls>
-        <item url="file://$PROJECT_DIR$/webpack.config-compiled.js" />
+        <item url="file://$PROJECT_DIR$/client/src/actions/loginAction-compiled.js" />
+        <item url="file://$PROJECT_DIR$/client/src/actions/flashMessageAction-compiled.js" />
+        <item url="file://$PROJECT_DIR$/server/passport/local-login-compiled.js" />
+        <item url="file://$PROJECT_DIR$/client/src/components/common/TextFieldGroup-compiled.js" />
+        <item url="file://$PROJECT_DIR$/client/index-compiled.js" />
+        <item url="file://$PROJECT_DIR$/client/src/reducers/flashMessages-compiled.js" />
+        <item url="file://$PROJECT_DIR$/client/rootReducer-compiled.js" />
+        <item url="file://$PROJECT_DIR$/client/src/components/flash/FlashMessagesList-compiled.js" />
+        <item url="file://$PROJECT_DIR$/client/src/components/common/navigationBar-compiled.js" />
+        <item url="file://$PROJECT_DIR$/server/passport/index-compiled.js" />
+        <item url="file://$PROJECT_DIR$/client/src/components/flash/FlashMessage-compiled.js" />
+        <item url="file://$PROJECT_DIR$/server/routes/auth-compiled.js" />
+        <item url="file://$PROJECT_DIR$/client/src/constants/ActionTypes-compiled.js" />
+        <item url="file://$PROJECT_DIR$/client/src/components/pages/login-compiled.js" />
+        <item url="file://$PROJECT_DIR$/client/src/components/app-compiled.js" />
+        <item url="file://$PROJECT_DIR$/client/src/components/pages/Form/LoginForm-compiled.js" />
+        <item url="file://$PROJECT_DIR$/client/src/components/pages/chat-compiled.js" />
+        <item url="file://$PROJECT_DIR$/client/src/components/pages/signup-compiled.js" />
+        <item url="file://$PROJECT_DIR$/client/src/components/pages/Form/SignupForm-compiled.js" />
         <item url="file://$PROJECT_DIR$/client/src/components/navigationBar-compiled.js" />
+        <item url="file://$PROJECT_DIR$/webpack.config-compiled.js" />
         <item url="file://$PROJECT_DIR$/client/src/components/routes-compiled.js" />
+        <item url="file://$PROJECT_DIR$/server/socketio-compiled.js" />
         <item url="file://$PROJECT_DIR$/client/src/components/pages/main-compiled.js" />
         <item url="file://$PROJECT_DIR$/server-compiled.js" />
-        <item url="file://$PROJECT_DIR$/client/src/components/pages/chat-compiled.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/webpack.config-compiled.js" />
+      <root url="file://$PROJECT_DIR$/client/src/actions/loginAction-compiled.js" />
+      <root url="file://$PROJECT_DIR$/client/src/actions/flashMessageAction-compiled.js" />
+      <root url="file://$PROJECT_DIR$/server/passport/local-login-compiled.js" />
+      <root url="file://$PROJECT_DIR$/client/src/components/common/TextFieldGroup-compiled.js" />
+      <root url="file://$PROJECT_DIR$/client/index-compiled.js" />
+      <root url="file://$PROJECT_DIR$/client/src/reducers/flashMessages-compiled.js" />
+      <root url="file://$PROJECT_DIR$/client/rootReducer-compiled.js" />
+      <root url="file://$PROJECT_DIR$/client/src/components/flash/FlashMessagesList-compiled.js" />
+      <root url="file://$PROJECT_DIR$/client/src/components/common/navigationBar-compiled.js" />
+      <root url="file://$PROJECT_DIR$/server/passport/index-compiled.js" />
+      <root url="file://$PROJECT_DIR$/client/src/components/flash/FlashMessage-compiled.js" />
+      <root url="file://$PROJECT_DIR$/server/routes/auth-compiled.js" />
+      <root url="file://$PROJECT_DIR$/client/src/constants/ActionTypes-compiled.js" />
+      <root url="file://$PROJECT_DIR$/client/src/components/pages/login-compiled.js" />
+      <root url="file://$PROJECT_DIR$/client/src/components/app-compiled.js" />
+      <root url="file://$PROJECT_DIR$/client/src/components/pages/Form/LoginForm-compiled.js" />
+      <root url="file://$PROJECT_DIR$/client/src/components/pages/chat-compiled.js" />
+      <root url="file://$PROJECT_DIR$/client/src/components/pages/signup-compiled.js" />
+      <root url="file://$PROJECT_DIR$/client/src/components/pages/Form/SignupForm-compiled.js" />
       <root url="file://$PROJECT_DIR$/client/src/components/navigationBar-compiled.js" />
+      <root url="file://$PROJECT_DIR$/webpack.config-compiled.js" />
       <root url="file://$PROJECT_DIR$/client/src/components/routes-compiled.js" />
+      <root url="file://$PROJECT_DIR$/server/socketio-compiled.js" />
       <root url="file://$PROJECT_DIR$/client/src/components/pages/main-compiled.js" />
       <root url="file://$PROJECT_DIR$/server-compiled.js" />
-      <root url="file://$PROJECT_DIR$/client/src/components/pages/chat-compiled.js" />
     </CLASSES>
     <SOURCES />
   </library>

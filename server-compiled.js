@@ -13,21 +13,13 @@ var compiler = webpack(webpackConfig);
 
 var app = express();
 var http = require('http').Server(app);
-var io = require('socket.io')(http);
-
-// Listen for a connection
-io.on('connection', function (socket) {
-  // Create message
-  socket.on('chat message', function (params) {
-    io.emit('chat message');
-  });
-});
+require('./server/socketio')(http);
 
 // tell the app to look for static files in these directories
 app.use(webpackMiddleware(compiler, {
-  hot: true,
-  publicPath: webpackConfig.output.publicPath,
-  noInfo: true
+	hot: true,
+	publicPath: webpackConfig.output.publicPath,
+	noInfo: true
 }));
 app.use(webpackHotMiddleware(compiler));
 app.use(express.static('./server/static/'));
@@ -52,24 +44,22 @@ app.use('/mainChat', apiRoutes);
 
 // start the server
 http.listen(3000, function () {
-  console.log('Server is running on http://localhost:3000 or http://127.0.0.1:3000');
+	console.log('Server is running on http://localhost:3000 or http://127.0.0.1:3000');
 });
 ;
 
 var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
+	if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+		return;
+	}
 
-  __REACT_HOT_LOADER__.register(compiler, 'compiler', '/Users/zh355245849/WebChat/server.js');
+	__REACT_HOT_LOADER__.register(compiler, 'compiler', '/Users/zh355245849/WebChat/server.js');
 
-  __REACT_HOT_LOADER__.register(app, 'app', '/Users/zh355245849/WebChat/server.js');
+	__REACT_HOT_LOADER__.register(app, 'app', '/Users/zh355245849/WebChat/server.js');
 
-  __REACT_HOT_LOADER__.register(http, 'http', '/Users/zh355245849/WebChat/server.js');
+	__REACT_HOT_LOADER__.register(http, 'http', '/Users/zh355245849/WebChat/server.js');
 
-  __REACT_HOT_LOADER__.register(io, 'io', '/Users/zh355245849/WebChat/server.js');
-
-  __REACT_HOT_LOADER__.register(authCheckMiddleware, 'authCheckMiddleware', '/Users/zh355245849/WebChat/server.js');
+	__REACT_HOT_LOADER__.register(authCheckMiddleware, 'authCheckMiddleware', '/Users/zh355245849/WebChat/server.js');
 }();
 
 ;

@@ -1,17 +1,20 @@
 import React from 'react';
-import classnames from 'classnames';
-
+import {connect} from 'react-redux';
 class FlashMessage extends React.Component {
 	render(){
-		const {id,type,text} = this.props.message;
-		return(
-			<div className = {classnames('alert',{
-				'alert-success' : type === 'success',
-				'alert-danger' : type === 'error'
-			})}>
-			{text}
-			</div>
-		);
+		const {id,type,text,token} = this.props.message;
+		if(text===null)
+		{
+			return null;
+		}
+		else{
+			return(
+				<div>
+				{text}
+				{token}
+				</div>
+			);
+		}
 	}
 }
 
@@ -19,4 +22,9 @@ FlashMessage.propTypes = {
 	message: React.PropTypes.object.isRequired
 }
 
-export default FlashMessage;
+function mapStateToProps(state){
+	return{
+		message:state.flashMessages
+	}
+}
+export default connect(mapStateToProps)(FlashMessage);

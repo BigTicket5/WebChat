@@ -44,6 +44,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 // app-client.js
 
 
+var socket = _socket2.default.connect();
+
 var chat = function (_Component) {
     _inherits(chat, _Component);
 
@@ -66,31 +68,26 @@ var chat = function (_Component) {
             var _this2 = this;
 
             var data = this.state.data;
-            setTimeout(function () {
-                _this2.refs.author.refs.input.focus();
-            }, 100);
-            var socket = (0, _socket2.default)();
-            // Listen for messages coming in
-            socket.on('chat message');
-        }
-    }, {
-        key: 'componentDidUpdate',
-        value: function componentDidUpdate() {
-            if (this.refs.message) this.refs.message.refs.input.focus();
-            if (this.refs.messages_scroll_area) this.refs.messages_scroll_area.scrollTop = this.refs.messages_scroll_area.scrollHeight;
-        }
-    }, {
-        key: 'setAuthor',
-        value: function setAuthor() {
-            var author = this.refs.author.refs.input.value.trim();
-            if (!author) return;
-            this.refs.author.refs.input.value = '';
-            var messages = this.state.data.messages;
-            this.setState({
-                data: {
-                    author: author,
-                    messages: messages
-                }
+            var messages = data.messages;
+
+            socket.on('updatechat', function (data) {
+                console.log(data);
+                var message_browser = {
+                    _id: _nodeUuid2.default.v1(),
+                    metafield: {
+                        message: {
+                            value: data
+                        }
+                    }
+                };
+
+                messages.push(message_browser);
+                _this2.setState({
+                    data: {
+                        messages: messages
+                    }
+                });
+                _this2.refs.message.refs.input.value = '';
             });
         }
     }, {
@@ -98,32 +95,24 @@ var chat = function (_Component) {
         value: function createMessage() {
             var data = this.state.data;
             var messages = data.messages;
-            var socket = (0, _socket2.default)();
-            console.log(this.refs);
             var message_text = this.refs.message.refs.input.value.trim();
             if (!message_text) return;
-            var message_emit = {
-                message: message_text,
-                author: data.author
-            };
-            // Send message out
-            socket.emit('chat message', message_emit);
+
+            socket.emit("sendchat", { room: "room1", message: message_text });
+
             // Render to browser
             var message_browser = {
                 _id: _nodeUuid2.default.v1(),
                 metafield: {
-                    author: {
-                        value: data.author
-                    },
                     message: {
                         value: message_text
                     }
                 }
             };
+
             messages.push(message_browser);
             this.setState({
                 data: {
-                    author: data.author,
                     messages: messages
                 }
             });
@@ -133,33 +122,23 @@ var chat = function (_Component) {
         key: 'handleSubmit',
         value: function handleSubmit(e) {
             e.preventDefault();
-            var data = this.state.data;
-            if (data.author) this.createMessage();else this.setAuthor();
+            this.createMessage();
         }
     }, {
         key: 'render',
         value: function render() {
             var data = this.state.data;
             var form_input = void 0;
-            if (!data.author) {
-                form_input = _react2.default.createElement(
-                    'div',
-                    null,
-                    'Hi, what is your name?',
-                    _react2.default.createElement('br', null),
-                    _react2.default.createElement(_reactBootstrap.Input, { type: 'text', ref: 'author' })
-                );
-            } else {
-                form_input = _react2.default.createElement(
-                    'div',
-                    null,
-                    'Hello ',
-                    data.author,
-                    ', type a message:',
-                    _react2.default.createElement('br', null),
-                    _react2.default.createElement(_reactBootstrap.Input, { type: 'text', ref: 'message' })
-                );
-            }
+
+            form_input = _react2.default.createElement(
+                'div',
+                null,
+                'Hello ',
+                data.author,
+                ', type a message:',
+                _react2.default.createElement('br', null),
+                _react2.default.createElement(_reactBootstrap.Input, { type: 'text', ref: 'message' })
+            );
             var messages = data.messages;
             var messages_list = void 0;
             if (messages) {
@@ -175,7 +154,7 @@ var chat = function (_Component) {
                             _react2.default.createElement(
                                 'b',
                                 null,
-                                message_object.metafield.author.value
+                                'Nickname'
                             ),
                             _react2.default.createElement('br', null),
                             message_object.metafield.message.value
@@ -199,7 +178,7 @@ var chat = function (_Component) {
                     ),
                     _react2.default.createElement(
                         'div',
-                        { ref: 'messages_scroll_area', style: scroll_area_style },
+                        { id: 'text', ref: 'messages_scroll_area', style: scroll_area_style },
                         _react2.default.createElement(
                             'ul',
                             { style: (0, _shorti2.default)('p-0') },
@@ -231,6 +210,8 @@ var _temp = function () {
     if (typeof __REACT_HOT_LOADER__ === 'undefined') {
         return;
     }
+
+    __REACT_HOT_LOADER__.register(socket, 'socket', '/Users/zh355245849/WebChat/client/src/components/pages/chat.js');
 
     __REACT_HOT_LOADER__.register(chat, 'chat', '/Users/zh355245849/WebChat/client/src/components/pages/chat.js');
 

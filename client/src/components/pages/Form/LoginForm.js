@@ -1,6 +1,7 @@
 import React from 'react';
 import TextFieldGroup from '../../common/TextFieldGroup';
 import {browserHistory} from 'react-router';
+import cookie from 'react-cookie';
 class Login extends React.Component {
 
 	constructor(props){
@@ -24,8 +25,10 @@ class Login extends React.Component {
 			(success)=>{
 				this.props.addFlashMessage({
 					type: 'success',
-					text: 'Welcome, ' + success.reqdata.data.user
+					text: 'Welcome, ' + success.data.user,
+					token: success.data.token
 				});
+				cookie.save('token',success.data.token,{path:'/'});
 				browserHistory.push('/');
 			},
 			(err)=>this.setState({errors:err.response.data.errors,isLoading:false}));
