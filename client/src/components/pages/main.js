@@ -80,18 +80,17 @@ class MainPage extends React.Component {
         // call the server-side function 'adduser' and send one parameter (value of prompt)
         socket.emit('adduser', val);
     }
-
-	render()
-	{
-		return (
-			<div>
-				<h1> There u are!</h1>
-            {this.state.loading ?
-            this.renderLoading()
-            : this.renderTopics()}
-			</div>
-		);
-	}
+    render()
+    {
+	    return (
+			    <div>
+			    <h1> There u are!</h1>
+			    {this.state.loading ?
+			    this.renderLoading()
+			    : this.renderTopics()}
+			    </div>
+		   );
+    }
 }
 
 export default MainPage;

@@ -38,9 +38,9 @@ app.use('/mainChat', authCheckMiddleware);
 
 // routes
 const authRoutes = require('./server/routes/auth');
-const apiRoutes = require('./server/routes/mainChat');
+
 app.use('/auth', authRoutes);
-app.use('/mainChat', apiRoutes);
+
 
 
 

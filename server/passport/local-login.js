@@ -19,8 +19,8 @@ module.exports = function(config) {
                     }
                     else 
                     {
-                        var token = jwt.sign({ user: user.nickname }, secret.jwtSecret);
-                        return done(null,token,user.nickname);
+                        var token = jwt.sign({ user: user.user.nickname }, secret.jwtSecret);
+                        return done(null,token,user.user.nickname);
                     }
                 });
         });

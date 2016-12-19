@@ -1,16 +1,17 @@
 import {ADD_FLASH_MESSAGE} from '../constants/ActionTypes';
 import shortid from 'shortid';
-export default(state=[],action={}) =>{
+
+const initialState = {
+  id:null,
+  type:null,
+  text:null,
+  loggedIn: false,
+  token:null
+}
+export default(state=initialState,action) =>{
 	switch (action.type){
 		case ADD_FLASH_MESSAGE:
-			return [
-				...state,
-				{
-					id: shortid.generate(),
-					type:action.message.type,
-					text:action.message.text
-				}
-			];
-			default: return state;
+			return Object.assign({}, state, {id: shortid.generate(),type:action.message.type,text:action.message.text,loggedIn:true,token:action.message.token});
 	}
+	return state;
 }
