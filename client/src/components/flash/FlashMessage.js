@@ -11,7 +11,6 @@ class FlashMessage extends React.Component {
 			return(
 				<div>
 				{text}
-				{token}
 				</div>
 			);
 		}
