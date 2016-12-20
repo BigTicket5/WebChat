@@ -1,4 +1,4 @@
-import {DEL_MESSAGE}  from '../constants/ActionTypes';
+import {DEL_FLASH_MESSAGE}  from '../constants/ActionTypes';
 export function delFlashMessage(){
-	return {type:DEL_MESSAGE};
+	return {type:DEL_FLASH_MESSAGE};
 }
