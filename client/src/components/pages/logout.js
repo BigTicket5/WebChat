@@ -1,7 +1,7 @@
 import { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import cookie from 'react-cookie';
-import {delFlashMessage} from '../../actions/delMessageAction';
+import {delFlashMessage} from '../../actions/deleteMessageAction';
 class LogoutPage extends Component {
 
   componentWillMount() {
