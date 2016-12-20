@@ -1,12 +1,13 @@
 import { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router'
-
+import cookie from 'react-cookie';
+import {delFlashMessage} from '../../actions/delMessageAction';
 class LogoutPage extends Component {
 
   componentWillMount() {
-    this.props.dispatch()
-    this.props.router.replace('/')
+  	cookie.remove("token",{ path: '/' });
+    this.props.dispatch(delFlashMessage());
+    this.props.router.replace('/');
   }
 
   render() {
@@ -18,4 +19,4 @@ LogoutPage.propTypes = {
   router: PropTypes.object.isRequired
 }
 
-export default connect()(withRouter(LogoutPage))
+export default connect({delFlashMessage})(LogoutPage);
