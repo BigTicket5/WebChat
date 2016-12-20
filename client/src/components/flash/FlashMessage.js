@@ -10,7 +10,6 @@ class FlashMessage extends React.Component {
 		else{
 			return(
 				<div>
-				{text}
 				</div>
 			);
 		}
